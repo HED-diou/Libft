@@ -1,6 +1,6 @@
 #include <unistd.h>
 
-void	toupper(int c)
+void	ft_toupper(int c)
 {
 	if(c >= 'a' && c <= 'z')
 		return (c - 32);
