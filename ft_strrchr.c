@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hed-diou <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/02 18:58:06 by hed-diou          #+#    #+#             */
+/*   Updated: 2021/11/02 18:58:38 by hed-diou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 #include <stdio.h>
 
@@ -14,6 +26,7 @@ char *ft_strrchr(char *str, char c)
 	return &str[index + 1];
 
 }
+/*
 int main(){
 // initializing variables
     char st[] = "GeeksforGeeks";
@@ -26,3 +39,4 @@ int main(){
  
     printf("String after last %c is :  %s \n", ch, val);
 }
+*/

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hed-diou <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/02 18:57:04 by hed-diou          #+#    #+#             */
+/*   Updated: 2021/11/02 18:57:17 by hed-diou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 #include <stdio.h>
 #include <string.h>
@@ -15,7 +27,7 @@ char *ft_strchr(char *str, int ch)
 		return &str[i];
 	return 0;
 }
-
+/*
 int main()
 {
 	char t1[40] = "hello world";
@@ -28,3 +40,4 @@ int main()
 
 	printf("%s\n%s",ptr1,ptr2);
 }
+*/

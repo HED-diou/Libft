@@ -1,9 +1,23 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hed-diou <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/02 18:40:06 by hed-diou          #+#    #+#             */
+/*   Updated: 2021/11/02 18:40:10 by hed-diou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <string.h>
 #include <stdio.h>
+#include <stddef.h>
+#include "libft.h"
 
 void ft_bzero(void *ss , size_t c)
 {
-	size_t i = 0;
+	int i = 0;
 	char *s = (char*)ss;
 	while(i < c)
 	{
@@ -14,7 +28,7 @@ void ft_bzero(void *ss , size_t c)
 
 int main()
 {
-	char *t = "hello world";
+	char t[20] = "hello world";
 	ft_bzero(t+3, 1);
 	printf("%s",t);
 }
