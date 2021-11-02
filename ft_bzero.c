@@ -1,17 +1,20 @@
+#include <string.h>
+#include <stdio.h>
 
 void ft_bzero(void *ss , size_t c)
 {
 	size_t i = 0;
 	char *s = (char*)ss;
-	while(s[i])
+	while(i < c)
 	{
-		if(i < c)
-			s[i] = '\0';
+		s[i] = '\0';
 		i++;
 	}
 }
 
 int main()
 {
-       ft_bzero("hello world", 3);
+	char *t = "hello world";
+	ft_bzero(t+3, 1);
+	printf("%s",t);
 }

@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "libft.h"
 
 int ft_atoi(char *c)
 {
@@ -23,10 +24,10 @@ int ft_atoi(char *c)
 	return out;
 
 }
-
+/*
 int main()
 {
 	int a = ft_atoi("  - 552");
 	int b = atoi("  - 552");
 	printf(">>  %d \n<<  %d",a,b);
-}
+}*/
