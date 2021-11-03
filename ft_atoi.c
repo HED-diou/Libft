@@ -19,7 +19,7 @@ int ft_atoi(char *c)
 	int i = 0;
 	int x = 1;
 	int out = 0;
-	while(c[i] == ' ' ||c[i] == '	')
+	while(c[i] == ' ' || c[i] == '\t' || c[i] == '\v'  || c[i] == '\f'  || c[i] == '\r')
 		i++;
 	if(c[i] == '-' || c[i] == '+')
 	{
@@ -39,7 +39,8 @@ int ft_atoi(char *c)
 /*
 int main()
 {
-	int a = ft_atoi("  - 552");
-	int b = atoi("  - 552");
+	int a = ft_atoi("  --552rtyrty");
+	int b = atoi("  --552tryrty");
 	printf(">>  %d \n<<  %d",a,b);
-}*/
+}
+*/

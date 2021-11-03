@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+//#include "libft.h"
 #include <unistd.h>
 #include <string.h>
 #include <stdio.h>
@@ -18,13 +18,14 @@
 
 void *ft_memset(void *ss, int c, size_t n)
 {
-	int i = 0;
+	size_t i = 0;
 	char *s = (char*)ss;
 	while (i < n)
 	{
 		s[i] = c;
 		i++;
 	}
+	ss = s;
 	return s;
 }
 /*

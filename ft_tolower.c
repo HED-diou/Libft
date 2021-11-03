@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	ft_tolower(char *str)
+int	ft_tolower(char *str)
 {
 	int i = 0;
 	while(str[i])
