@@ -12,13 +12,12 @@
 
 NAME = libft.a
 
-SRC = *.c
+SRC = ft_atoi.c \
+	  ft_bzero.c \
 
 SRCS = $(SRC:.c=.o)
 
 HEADER = libft.h
-
-all:  $(NAME)
 
 FLAGS = -Wall -Werror -Wextra
 
