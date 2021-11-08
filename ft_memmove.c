@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hed-diou <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/08 17:50:30 by hed-diou          #+#    #+#             */
+/*   Updated: 2021/11/08 17:50:31 by hed-diou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
 #include <string.h>
 #include <stddef.h>
@@ -11,6 +23,8 @@ void *ft_memmove(void *dest, const void *src, size_t n)
 
     
     size_t i = 0;
+    if(d == s)
+        return dest;
     if (d > s)
     {
         while(n--)
@@ -30,14 +44,19 @@ void *ft_memmove(void *dest, const void *src, size_t n)
 
 int main()
 {
-    char dest[10] = "hellohello";
-    char src[20] = "mimi";
-    memmove(dest,src,3);
+    char dest[] = "abcdef";
+    //char src[20] = "mimi";
+    memmove(dest+1,dest,3);
 
-    char dest2[10] = "hellohello";
-    char src2[20] = "mimi";
-    ft_memmove(dest2,src2,3);
+    // char dest3[] = "abcde";
+    // //char src2[20] = "mimi";
+    // memcpy(dest3+1,dest3,3);
 
-    printf("DEST >> %s \nSRC >> %s",dest,src);
-    printf("\n\nDEST2 >> %s \nSRC2 >> %s",dest2, src2);
+    char dest2[] = "abcdef";
+    //char src2[20] = "mimi";
+    ft_memmove(dest2+1,dest2,3);
+
+    printf("mov >> %s \n",dest);
+    //printf("cpy >> %s \n",dest3);
+    printf("My func >> %s ",dest2);
 }

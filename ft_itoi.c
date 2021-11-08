@@ -1,54 +1,72 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hed-diou <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/11/08 17:51:27 by hed-diou          #+#    #+#             */
+/*   Updated: 2021/11/08 17:51:29 by hed-diou         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
 #include <string.h>
-
 #include <stdlib.h>
 
-
-static int len(long nb)
+static int	len(long nb)
 {
-    int len = 0;
-    if(nb < 0)
-    {
-        nb = nb * -1;
-        len++;
-    }
-    while(nb > 0)
-    {
-        nb = nb / 10;
-        len++;
-    }
-    return len;
+	int	len;
+	len = 0;
+    if (nb < 0)
+	{
+		nb = nb * -1;
+		len++;
+	}
+	while (nb > 0)
+	{
+		nb = nb / 10;
+		len++;
+	}
+	return (len);
 }
 
-char *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
-    int i = 0;
-    i = len(n);
-    
-    char *str = (char*)malloc(sizeof(char) * i);
-    i = i - 1;
+	int	i;
+
+	i = len(n);
+	unsigned int	j;
+	char	*str;
+
+	str = (char*)malloc(sizeof(char) * i);
     str[i] = '\0';
-
-    if(n == 0)
-    {
-        str[0] = '0';
-        return str;
-    }
-    if(n < 0)
-    {
-        str[0] = '-';
-        n = n * -1;
-    }
-    while (n > 0)
-    {
-        str[i] = (n % 10) + '0';
-        n = n / 10;
-        i--; 
-    }
-    return str;
+	i = i - 1;
+	if(n == 0)
+	{
+		str[0] = '0';
+		return (str);
+	}
+	if(n < 0)
+	{
+		str[0] = '-';
+		j = n * -1;
+	}
+	else
+	{
+		j = n;
+	}
+	while (j > 0)
+	{
+		str[i] = (j % 10) + '0';
+		j = j / 10;
+		i--;
+	}
+	return (str);
 }
-int main(void)
+
+int	main(void)
 {
-        printf("%s\n", ft_itoa(-123156));
-        return (0);
+	printf("%s\n", ft_itoa(2147483649));
+	return (0);
 }

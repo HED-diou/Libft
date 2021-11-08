@@ -15,11 +15,14 @@
 #include <stddef.h>
 #include "libft.h"
 
-void ft_bzero(void *ss , size_t c)
+void	ft_bzero(void *ss , size_t c)
 {
-	int i = 0;
-	char *s = (char*)ss;
-	while(i < c)
+	int i;
+	char	*s;
+
+	i = 0;
+	*s = (char*)ss;
+	while (i < c)
 	{
 		s[i] = '\0';
 		i++;
@@ -29,6 +32,6 @@ void ft_bzero(void *ss , size_t c)
 int main()
 {
 	char t[20] = "hello world";
-	ft_bzero(t+3, 1);
+	ft_bzero(t, 1);
 	printf("%s",t);
 }
