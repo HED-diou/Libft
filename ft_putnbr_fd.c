@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<unistd.h>
+#include "libft.h"
 
 void	ft_putnbr_fd(int nb,int fd)
 {
@@ -31,11 +31,11 @@ void	ft_putnbr_fd(int nb,int fd)
 			ft_putnbr_fd(nb / 10,fd);
 		}
 		char c = ((nb % 10) + '0');
-        ft_putchar_fd(fd, &c, 1);
+        ft_putchar_fd(c,fd);
 	}
 }
-int main()
-{
-    ft_putnbr_fd(1337,1);
+// int main()
+// {
+//     ft_putnbr_fd(1337,1);
 
-}
+// }

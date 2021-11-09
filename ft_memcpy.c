@@ -10,10 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "libft.h"
-#include <stdio.h>
-#include <string.h>
-#include <stddef.h>
+#include "libft.h"
 
 void *ft_memcpy(void *dest, const void *src, size_t n)
 {
@@ -30,16 +27,16 @@ void *ft_memcpy(void *dest, const void *src, size_t n)
     return dest;
 }
 
-int main()
-{
-    char dest[6] = "123456";
-    char src[5] = "world";
-    memcpy(dest,dest,3);
+// int main()
+// {
+//     char dest[6] = "123456";
+//     char src[5] = "world";
+//     memcpy(dest,dest,3);
 
-    char dest2[6] = "123456";
-    char src2[5] = "world";
-    ft_memcpy(dest2,dest2,3);
+//     char dest2[6] = "123456";
+//     char src2[5] = "world";
+//     ft_memcpy(dest2,dest2,3);
 
-    printf("DEST >> %s \n",memcpy(dest,dest,3));
-    printf("\n\nDEST2 >> %s",ft_memcpy(dest2,dest2,3));
-}
+//     printf("DEST >> %s \n",memcpy(dest,dest,3));
+//     printf("\n\nDEST2 >> %s",ft_memcpy(dest2,dest2,3));
+// }

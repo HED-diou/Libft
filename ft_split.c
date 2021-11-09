@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
-#include <stdio.h>
+#include "libft.h"
 
 static int spl(char *s, char c)
 {
@@ -79,18 +78,18 @@ char **ft_split(char *s, char c)
     return cpy;
 }
 
-int main(void)
-{
-    char *s = "hedf dsf sdf dslf jsdklfjdsklf jdlsfj lsdkfj sdf    ds sd";
-    char sp = ' ';
-    char **x = ft_split(s,sp);
-    int i = 0;int j = 0;
-    while( *x )
-    {
-        printf("%s\n",*x);
-        x++;
-    }
+// int main(void)
+// {
+//     char *s = "hedf dsf sdf dslf jsdklfjdsklf jdlsfj lsdkfj sdf    ds sd";
+//     char sp = ' ';
+//     char **x = ft_split(s,sp);
+//     int i = 0;int j = 0;
+//     while( *x )
+//     {
+//         printf("%s\n",*x);
+//         x++;
+//     }
 
-}
+// }
 
 

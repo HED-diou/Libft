@@ -10,17 +10,17 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include "libft.h"
 
 void ft_putstr_fd(char *s,int fd)
 {
     int i = 0;
-    while (s[i])
-        write(fd,&s[i++],1);
+    while (s[i++])
+        ft_putchar_fd(s[i],fd);
     
 }
 
-int main()
-{
-    ft_putstr_fd("hello world",1);
-}
+// int main()
+// {
+//     ft_putstr_fd("hello world",1);
+// }

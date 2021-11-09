@@ -10,15 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<string.h>
-#include <stddef.h>
+#include "libft.h"
 
 void    *ft_memchr( const void *str, int ch, size_t n )
 {
     char    *s;                    					 
     size_t  i;
     size_t  j;
-
+    
     s = (char*)str;
     i = 0;
     j = 0;

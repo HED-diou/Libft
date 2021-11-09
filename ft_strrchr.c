@@ -1,23 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hed-diou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/02 18:41:42 by hed-diou          #+#    #+#             */
-/*   Updated: 2021/11/02 18:41:44 by hed-diou         ###   ########.fr       */
+/*   Created: 2021/11/02 18:58:06 by hed-diou          #+#    #+#             */
+/*   Updated: 2021/11/02 18:58:38 by hed-diou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-
-int	ft_isdigit(int arg)
+char	*ft_strrchr(char *str, char c)
 {
-	if (arg >= 48 && arg <= 57)
+	int	i;
+	int	index;
+
+	index = 0;
+	i = 0;
+	while (str[i])
 	{
-		return (1);
+		if (str[i] == c)
+			index = i;
+		i++;
 	}
-	return (0);
+	return (&str[index + 1]);
 }
+/*
+int main(){
+// initializing variables
+    char st[] = "GeeksforGeeks";
+    char ch = 'e';
+    char* val;
+ 
+    // Use of strrchr()
+    // returns "ks"
+    val = ft_strrchr(st, ch);
+ 
+    printf("String after last %c is :  %s \n", ch, val);
+}
+*/
