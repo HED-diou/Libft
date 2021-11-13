@@ -12,12 +12,16 @@
 
 #include "libft.h"
 
-int ft_memcmp(const void *str1, const void *str2, size_t n)
+int	ft_memcmp(const void *str1, const void *str2, size_t n)
 {
-   unsigned char *s2_c = (unsigned char *)str1;
-	unsigned char *s1_c = (unsigned char *)str2;
-   size_t			i = 0;
-   while (i < n)
+	unsigned char	*s1_c;
+	unsigned char	*s2_c;
+	size_t			i;
+
+	i = 0;
+	s1_c = (unsigned char *)str1;
+	s2_c = (unsigned char *)str2;
+	while (i < n)
 	{
 		if (s1_c[i] != s2_c[i])
 			return (s1_c[i] - s2_c[i]);
@@ -26,26 +30,10 @@ int ft_memcmp(const void *str1, const void *str2, size_t n)
 	return (0);
 }
 
-// #include <stdio.h>
-// #include <string.h>
+//  #include <stdio.h>
+//  #include <string.h>
 
-// int main () {
-//    char str1[15];
-//    char str2[15];
-//    int ret;
+//  int main () {
 
-//    memcpy(str1, "abcdef", 6);
-//    memcpy(str2, "ABCDEF", 6);
-
-//    ret = memcmp(str1, str2, 5);
-
-//    if(ret > 0) {
-//       printf("str2 is less than str1");
-//    } else if(ret < 0) {
-//       printf("str1 is less than str2");
-//    } else {
-//       printf("str1 is equal to str2");
-//    }
-   
 //    return(0);
-// }
+//}

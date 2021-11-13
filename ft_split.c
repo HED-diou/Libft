@@ -12,84 +12,85 @@
 
 #include "libft.h"
 
-static int spl(char *s, char c)
+static int	spl(char *s, char c)
 {
-    int i = 0;
-    int spl = 0;
-    if(s[0] != '\0' && s[0] != c)
-        spl++;
-    while(s[i])
-    {
-        while(s[i] == c)
-             i++;
-        if(s[i] != c && s[i-1] == c && s[i] != '\0')
-        {
-            spl++;
-            while(s[i] != c && s[i])
-                i++;
-        }
-        i++;
-    }
-    
-    printf(" SPL :  %d \n" ,spl);
-    return spl;
+	int	i;
+	int	spl;
+
+	i = 0;
+	spl = 0;
+	if (s[0] != '\0' && s[0] != c)
+		spl++;
+	while (s[i])
+	{
+		if (s[i] != c && s[i - 1] == c && s[i] != '\0')
+		{
+			spl++;
+			while (s[i] != c && s[i])
+				i++;
+		}
+		i++;
+	}
+	return (spl);
 }
 
-
-static int len(char *s,int i, char c)
+static int	len(char *s, int i, char c)
 {
-    int len = 0;
-    while(s[i] != c && s[i] != '\0')
-    {
-        i++;
-        len++;
-    }
-    //printf(" LEN :  %d \n" ,len);
-    return len;
+	int	len;
+
+	len = 0;
+	while (s[i] != c && s[i] != '\0')
+	{
+		i++;
+		len++;
+	}
+	return (len);
 }
 
-char **ft_split(char *s, char c)
+static char	**engine(int k, char **cpy, char *s, char c)
 {
-    int i = 0;
-    int ii = 0;
-    int l = 0; 
-    int j = 0;
-    int k = spl(s,c);
-    char **cpy=(char**)malloc(sizeof(char*) * (k+1));
-    while(i < k)
-    {
-        while (s[ii] == c)
-            ii++;
-        l = len(s,ii,c);
-        cpy[i] = (char*)malloc(sizeof(char) * (l+1));
-        j = 0;
-        while(s[ii] != c && s[ii])
-        {
-            cpy[i][j] = s[ii];
-            j++;
-            ii++;
-        }
-        cpy[i][j] = '\0';
-        i++;
-        // if(s[ii] == '\0')
-        //     break;
-    }
-    cpy[i]=NULL;
-    return cpy;
+	int	i;
+	int	ii;
+	int	l;
+	int	j;
+
+	i = 0;
+	ii = 0;
+	while (i < k && s[ii])
+	{
+		while (s[ii] == c)
+			ii++;
+		l = len(s, ii, c);
+		cpy[i] = (char *)malloc(sizeof(char) * (l + 1));
+		j = 0;
+		while (s[ii] != c && s[ii])
+		{
+			cpy[i][j] = s[ii];
+			j++;
+			ii++;
+		}
+		cpy[i][j] = '\0';
+		i++;
+	}
+	cpy[i] = NULL;
+	return (cpy);
 }
 
-// int main(void)
-// {
-//     char *s = "hedf dsf sdf dslf jsdklfjdsklf jdlsfj lsdkfj sdf    ds sd";
-//     char sp = ' ';
-//     char **x = ft_split(s,sp);
-//     int i = 0;int j = 0;
-//     while( *x )
-//     {
-//         printf("%s\n",*x);
-//         x++;
-//     }
+char	**ft_split(char *s, char c)
+{
+	int		i;
+	int		k;
+	char	**cpy;
 
-// }
-
-
+	i = 0;
+	if (s)
+	{
+		k = spl(s, c);
+		cpy = (char **)malloc(sizeof(char *) * (k + 1));
+		if (!cpy)
+			return (NULL);
+		return (engine(k, cpy, s, c));
+		return (cpy);
+	}
+	return (0);
+}

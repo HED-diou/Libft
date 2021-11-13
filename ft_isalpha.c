@@ -20,4 +20,3 @@ int	ft_isalpha(int chr)
 	}
 	return (0);
 }
-

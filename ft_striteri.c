@@ -19,18 +19,17 @@
 //     while (c[i++])
 //         c[i] = c[i] - 32;
 // }
-void    ft_striteri(char *s, void (*f)(unsigned int,char*))
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-    int i = 0;
-    while(s[i])
-    {
-        (*f)(i,&s[i]);
-        i++;
-    }
+	int	i;
+
+	i = 0;
+	if (s)
+	{
+		while (s[i])
+		{
+			(*f)(i, &s[i]);
+			i++;
+		}
+	}
 }
-// int main()
-// {
-// 	char *y = "hello";
-// 	ft_striteri(y,&f);
-// 	printf("%s",y);
-// }

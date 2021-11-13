@@ -15,8 +15,9 @@
 static int	len(long nb)
 {
 	int	len;
+
 	len = 0;
-    if (nb < 0)
+	if (nb < 0)
 	{
 		nb = nb * -1;
 		len++;
@@ -29,31 +30,23 @@ static int	len(long nb)
 	return (len);
 }
 
-char	*ft_itoa(int n)
+static char	*itoi2(char *str, int n, int i)
 {
-	int	i;
-
-	i = len(n);
 	unsigned int	j;
-	char	*str;
 
-	str = (char*)malloc(sizeof(char) * i);
-    str[i] = '\0';
-	i = i - 1;
-	if(n == 0)
+	j = 0;
+	if (n == 0)
 	{
 		str[0] = '0';
 		return (str);
 	}
-	if(n < 0)
+	if (n < 0)
 	{
 		str[0] = '-';
 		j = n * -1;
 	}
 	else
-	{
 		j = n;
-	}
 	while (j > 0)
 	{
 		str[i] = (j % 10) + '0';
@@ -63,8 +56,18 @@ char	*ft_itoa(int n)
 	return (str);
 }
 
-// int	main(void)
-// {
-// 	printf("%s\n", ft_itoa(2147483649));
-// 	return (0);
-// }
+char	*ft_itoa(int n)
+{
+	int				i;
+	char			*str;
+
+	i = len(n);
+	if (n == 0)
+		i += 1;
+	str = (char *)malloc(sizeof(char) * (i + 1));
+	if (!str)
+		return (NULL);
+	str[i] = '\0';
+	i = i - 1;
+	return (itoi2(str, n, i));
+}

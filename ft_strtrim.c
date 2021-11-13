@@ -26,45 +26,59 @@ static int	is_in(char *str, char c)
 	return (0);
 }
 
-char	*ft_strtrim(char *s1, char *set)
-{	
+static int	is_in_set(char *s1, char *set)
+{
 	int	i;
-	int	k;
-	int	j;
-	int	x;
-	char	*str;
+
+	i = 0;
+	while (s1[i])
+	{
+		if (!is_in(set, s1[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+static char	*trimx(int k, int i, char *str, char *s1)
+{
+	int		x;
 
 	x = 0;
-	j = 0;
-	i = 0;
-	k = 0;
-	while (s1[i] != '\0')
-		i++;
-	str = malloc(1 * i);
-	while (is_in(set, s1[k]))
-	{
-		k++; // len start
-	}
-	while (is_in(set, s1[i - 1]))
-	{
-		i--;/*len end*/
-	}
 	while (k < i)
 	{
 		str[x] = s1[k];
 		k++;
 		x++;
 	}
+	str[x] = '\0';
 	return (str);
 }
 
-// int main()
-// {
-//     char *s1 = "bc";
-//     char *set = "abc";
+char	*ft_strtrim(char *s1, char *set)
+{	
+	int		i;
+	int		k;
+	int		j;
+	char	*str;
 
-//     char *dest1 = ft_strtrim(s1,set);
-//     //char dest2[20] = strtrim(s1,set);
-
-//     printf(">%s\n", dest1);
-// }
+	j = 0;
+	i = 0;
+	k = 0;
+	if (s1)
+	{
+		if (is_in_set(s1, set))
+			return (ft_strdup(""));
+		while (s1[i])
+			i++;
+		while (is_in(set, s1[k]))
+			k++;
+		while (is_in(set, s1[i - 1]))
+			i--;
+		str = malloc(sizeof(char) * (i - k + 1));
+		if (!str)
+			return (NULL);
+		return (trimx(k, i, str, s1));
+	}
+	return (0);
+}

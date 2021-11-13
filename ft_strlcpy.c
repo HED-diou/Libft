@@ -12,8 +12,8 @@
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *restrict dest,
-					const char *restrict src, size_t dstsize)
+size_t	ft_strlcpy(char *dest,
+					const char *src, size_t dstsize)
 {
 	size_t	i;
 	size_t	j;
@@ -33,16 +33,3 @@ size_t	ft_strlcpy(char *restrict dest,
 		j++;
 	return (j);
 }
-
-// int	main(void)
-// {
-//     char dest[20]="hello";
-//     char dest2[20]="hello";
-//     char src[20]="world";
-//     size_t i=ft_strlcpy(dest,src,4);
-//     size_t i2=strlcpy(dest2,src,4);
-//     printf("ft_strlcpy : %ld \n",i);
-//     printf(" ft_strlcpy : %s\n",dest);
-//     printf(" strclpy : %ld \n",i2);
-//     printf(" strlcpy : %s \n",dest2);
-// }

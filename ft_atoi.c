@@ -23,38 +23,65 @@
 
 #include "libft.h"
 
-int	ft_atoi(char *c)
+static int	ft_isspace(char c)
 {
-	int	i;
-	int	x;
-	int	out;
-
-	out = 0;
-	x = 1;
-	i = 0;
-	while (c[i] == ' ' || c[i] == '\t' 
-		|| c[i] == '\v'  || c[i] == '\f'  
-		|| c[i] == '\r')
-		i++;
-	if (c[i] == '-' || c[i] == '+')
+	if (c == ' ' || c == '\t' || c == '\v'
+		|| c == '\f' || c == '\r' || c == '\n')
 	{
-		if (c[i] == '-')
-			x = x * -1;
-		i++;
+		return (1);
 	}
-	while (c[i] >= '0' && c[i] <= '9')
+	return (0);
+}
+
+static int	checkout(char *c, int i, int x)
+{
+	long long	out;
+	int			n;
+
+	n = 0;
+	out = 0;
+	while (ft_isdigit(c[i]))
 	{
 		out = (out * 10) + (c[i] - '0');
+		if (n >= 19 && x == 1)
+			return (-1);
+		if (n >= 19 && x == -1)
+			return (0);
 		i++;
+		n++;
 	}
 	out = out * x;
 	return (out);
 }
-/*
-int main()
+
+static int	sing(char c)
 {
-	int a = ft_atoi("  --552rtyrty");
-	int b = atoi("  --552tryrty");
-	printf(">>  %d \n<<  %d",a,b);
+	int	x;
+
+	x = 1;
+	if (c == '-' || c == '+')
+	{
+		if (c == '-')
+			x = x * -1;
+	}
+	return (x);
 }
-*/
+
+int	ft_atoi(char *c)
+{
+	int			i;
+	int			x;
+	long long	out;
+
+	x = 1;
+	i = 0;
+	while (ft_isspace(c[i]))
+		i++;
+	if (c[i] == '-' || c[i] == '+')
+	{
+		x = sing(c[i]);
+		i++;
+	}
+	out = checkout(c, i, x);
+	return (out);
+}

@@ -15,29 +15,15 @@
 char	*ft_strrchr(char *str, char c)
 {
 	int	i;
-	int	index;
 
-	index = 0;
 	i = 0;
 	while (str[i])
+		i++;
+	while (i >= 0)
 	{
 		if (str[i] == c)
-			index = i;
-		i++;
+			return (&str[i]);
+		i--;
 	}
-	return (&str[index + 1]);
+	return (0);
 }
-/*
-int main(){
-// initializing variables
-    char st[] = "GeeksforGeeks";
-    char ch = 'e';
-    char* val;
- 
-    // Use of strrchr()
-    // returns "ks"
-    val = ft_strrchr(st, ch);
- 
-    printf("String after last %c is :  %s \n", ch, val);
-}
-*/

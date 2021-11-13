@@ -20,23 +20,24 @@
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
 	unsigned int	i;
-	char	*str;
+	char			*str;
 
 	i = 0;
-	while (s[i])
-		i++;
-	i = 0;
-	str = (char*)malloc(sizeof(char) * i);
-	while (s[i])
+	if (s)
 	{
-		str[i] = (*f)(32,s[i]);
-		i++;
+		while (s[i])
+			i++;
+		str = (char *)malloc(sizeof(char) * (i + 1));
+		if (!str)
+			return (NULL);
+		i = 0;
+		while (s[i])
+		{
+			str[i] = (*f)(i, s[i]);
+			i++;
+		}
+		str[i] = '\0';
+		return (str);
 	}
-	return (str);
+	return (0);
 }
-// int main()
-// {
-// 	char *y = "hello";
-// 	char *x = ft_strmapi(y,f);
-// 	printf("%s",x);
-// }

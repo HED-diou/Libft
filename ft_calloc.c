@@ -14,20 +14,11 @@
 
 void	*ft_calloc(size_t n, size_t size)
 {
-	if(n == 0 || size == 0 )
-	{
-		return (0);
-	}
 	void	*ptr;
 
 	ptr = malloc(n * size);
-	ft_bzero(ptr, n);
+	if (!ptr)
+		return (NULL);
+	ft_bzero(ptr, n * size);
 	return (ptr);
 }
-
-// int	main()
-// {
-// 	char	*s;
-// 	s = ft_calloc(5, sizeof(char));
-// 	return (0);
-// }
