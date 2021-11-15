@@ -17,8 +17,8 @@ int	main()
 	printf("/* ************************************************************************** */\n/*                                                                            */\n/*              :::    ::: :::::::::: :::::::::                               */\n/*             :+:    :+: :+:        :+:    :+:                               */\n/*            +:+    +:+ +:+        +:+    +:+                                */\n/*           +#++:++#++ +#++:++#   +#+    +:+                                 */\n/*          +#+    +#+ +#+        +#+    +#+                                  */\n/*         #+#    #+# #+#        #+#    #+#                                   */\n/*        ###    ### ########## ######### - 01001000 01000101 01000100        */\n/*                                                                            */\n/* ************************************************************************** */\n\n\n");
 
 // /*   ===   FT_ATOI   ===   */
-//	int a = ft_atoi("1337");
-// 	int b = atoi("1337");
+// 	int a = ft_atoi("9223372036854775806");
+// 	int b = atoi("9223372036854775806");
 // 	printf(">>  %d \n<<  %d",a,b);
 
 // /*   ===   FT_BZERO   ===   */
@@ -134,12 +134,12 @@ int	main()
 //     printf("%s",str);
 
 // /*   ===   FT_STRLCAT   ===   */
-//     char dest[20] = "hamza";
+//     char *dest = NULL;
 //     char src[20] = "world";
-//     int x = strlcat(dest,src,3);
-//     char dest2[20] = "hamza";
+//     int x = strlcat(dest,src,0);
+//     char *dest2 = NULL;
 //     char src2[20] = "world";
-//     int y = ft_strlcat(dest2,src2,3);
+//     int y = ft_strlcat(dest2,src2,0);
 //     printf("DEST >> %s \nSRC >> %s",dest,src);
 //     printf("\n%d",x);
 //     printf("\n\nDEST2 >> %s \nSRC2 >> %s",dest2,src2);

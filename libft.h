@@ -59,8 +59,14 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int		ft_strncmp(char *str1, char *str2, size_t len);
 char	*ft_strnstr( char *big, char *little, size_t len );
 char	*ft_strrchr(char *str, char c);
-char	*ft_strtrim(char *s1, char *set);
+char	*ft_strtrim(const char *s1, const char *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
+
+t_list *ft_lstnew(void *content);
+void ft_lstadd_front(t_list **alst, t_list *new);
+int ft_lstsize(t_list *lst);
+t_list *ft_lstlast(t_list *lst);
+
 #endif

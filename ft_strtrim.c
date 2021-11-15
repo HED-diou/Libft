@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static int	is_in(char *str, char c)
+static int	is_in(const char *str, char c)
 {
 	int	i;
 
@@ -26,7 +26,7 @@ static int	is_in(char *str, char c)
 	return (0);
 }
 
-static int	is_in_set(char *s1, char *set)
+static int	is_in_set(const char *s1, const char *set)
 {
 	int	i;
 
@@ -40,7 +40,7 @@ static int	is_in_set(char *s1, char *set)
 	return (1);
 }
 
-static char	*trimx(int k, int i, char *str, char *s1)
+static char	*trimx(int k, int i, char *str, const char *s1)
 {
 	int		x;
 
@@ -55,7 +55,7 @@ static char	*trimx(int k, int i, char *str, char *s1)
 	return (str);
 }
 
-char	*ft_strtrim(char *s1, char *set)
+char	*ft_strtrim(const char *s1, const char *set)
 {	
 	int		i;
 	int		k;
