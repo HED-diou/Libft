@@ -31,8 +31,3 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	dest = d;
 	return (dest);
 }
-
-//  int main()
-//  {
-
-// }

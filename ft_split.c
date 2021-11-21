@@ -12,29 +12,28 @@
 
 #include "libft.h"
 
-static int	spl(char *s, char c)
+static int	spl(const char *s, char c)
 {
 	int	i;
 	int	spl;
 
 	i = 0;
 	spl = 0;
-	if (s[0] != '\0' && s[0] != c)
-		spl++;
 	while (s[i])
 	{
-		if (s[i] != c && s[i - 1] == c && s[i] != '\0')
+		if (s[i] != c)
 		{
 			spl++;
-			while (s[i] != c && s[i])
+			while (s[i] && s[i] != c)
 				i++;
+			i--;
 		}
 		i++;
 	}
 	return (spl);
 }
 
-static int	len(char *s, int i, char c)
+static int	len(const char *s, int i, char c)
 {
 	int	len;
 
@@ -47,7 +46,20 @@ static int	len(char *s, int i, char c)
 	return (len);
 }
 
-static char	**engine(int k, char **cpy, char *s, char c)
+void	ft_free(char **cpy, int i)
+{
+	int	j;
+
+	j = 0;
+	while (j < i)
+	{
+		free (cpy[i]);
+		j++;
+	}
+	free(cpy);
+}
+
+static char	**engine(int k, char **cpy, const char *s, char c)
 {
 	int	i;
 	int	ii;
@@ -62,21 +74,21 @@ static char	**engine(int k, char **cpy, char *s, char c)
 			ii++;
 		l = len(s, ii, c);
 		cpy[i] = (char *)malloc(sizeof(char) * (l + 1));
+		if (!(cpy[i]))
+		{
+			ft_free(cpy, i);
+			return (NULL);
+		}
 		j = 0;
 		while (s[ii] != c && s[ii])
-		{
-			cpy[i][j] = s[ii];
-			j++;
-			ii++;
-		}
-		cpy[i][j] = '\0';
-		i++;
+				cpy[i][j++] = s[ii++];
+		cpy[i++][j] = '\0';
 	}
 	cpy[i] = NULL;
 	return (cpy);
 }
 
-char	**ft_split(char *s, char c)
+char	**ft_split(const char *s, char c)
 {
 	int		i;
 	int		k;

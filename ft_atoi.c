@@ -33,19 +33,21 @@ static int	ft_isspace(char c)
 	return (0);
 }
 
-static int	checkout(char *c, int i, int x)
+static int	checkout(const char *c, int i, int x)
 {
-	long long	out;
-	int			n;
+	long long			out;
+	int					n;
+	unsigned long long	max;
 
 	n = 0;
 	out = 0;
+	max = 9223372036854775807;
 	while (ft_isdigit(c[i]))
 	{
 		out = (out * 10) + (c[i] - '0');
-		if (n >= 19 && x == 1)
+		if ((unsigned long long)out > max && x == 1)
 			return (-1);
-		if (n >= 19 && x == -1)
+		if ((unsigned long long)out > max && x == -1)
 			return (0);
 		i++;
 		n++;
@@ -67,7 +69,7 @@ static int	sing(char c)
 	return (x);
 }
 
-int	ft_atoi(char *c)
+int	ft_atoi(const char *c)
 {
 	int			i;
 	int			x;
